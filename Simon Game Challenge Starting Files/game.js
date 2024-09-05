@@ -56,6 +56,12 @@ function checkAnswer(currentLevel){
     }
 }
 
+function startOver(){
+    level = 0;
+    gamePattern = [];
+    started = false;
+}
+
 $(".btn").click(function(evt) {
     var userChosenColour = this.id;
     animatePress(userChosenColour);
@@ -67,7 +73,9 @@ $(".btn").click(function(evt) {
 })
 
 addEventListener("keydown", function(){
-    $("#level-title").html("Level " + level)
-    started = true;
-    nextSequence();
+    if (!started){
+        $("#level-title").html("Level " + level)
+        started = true;
+        nextSequence();
+    }
 })
