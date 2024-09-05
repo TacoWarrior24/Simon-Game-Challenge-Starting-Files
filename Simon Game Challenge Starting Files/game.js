@@ -12,15 +12,19 @@ function nextSequence(){
 
     $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
 
-    var audio = new Audio("sounds/" + randomChosenColour + ".mp3");
-    audio.play();
+    playSound(randomChosenColour);
 };
 
 $(".btn").click(function(evt) {
     var userChosenColour = this.id
     $("#" + userChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
 
-    var audio = new Audio("sounds/" + userChosenColour + ".mp3");
-    audio.play();
-    userClickedPattern.push(userChosenColour)
+    playSound(userChosenColour);
+
+    userClickedPattern.push(userChosenColour);
 })
+
+function playSound(name){
+    var audio = new Audio("sounds/" + name + ".mp3");
+    audio.play();
+}
