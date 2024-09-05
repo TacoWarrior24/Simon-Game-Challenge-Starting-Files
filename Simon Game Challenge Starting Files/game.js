@@ -26,9 +26,9 @@ function playSound(name){
 }
 
 function animatePress(currentColour){
-    $("#" + currentColour).addClass( "pressed" );
+    $("#" + currentColour).addClass("pressed");
     setTimeout(function() {
-        $("#" + currentColour).removeClass( "pressed" );
+        $("#" + currentColour).removeClass("pressed");
       }, 100);
 }
 
@@ -43,6 +43,16 @@ function checkAnswer(currentLevel){
     }
     else{
         console.log("Wrong!" , gamePattern[currentLevel] , userClickedPattern[currentLevel]);
+        
+        playSound("wrong");
+        
+        $("body").addClass("game-over");
+        setTimeout(function() {
+            $("body").removeClass("game-over");
+        }, 200);
+
+        $("#level-title").html("Game Over, Press Any Key to Restart");
+        startOver();
     }
 }
 
