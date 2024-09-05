@@ -17,7 +17,7 @@ function nextSequence(){
 
 $(".btn").click(function(evt) {
     var userChosenColour = this.id
-    $("#" + userChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
+    animatePress(userChosenColour)
 
     playSound(userChosenColour);
 
@@ -27,4 +27,11 @@ $(".btn").click(function(evt) {
 function playSound(name){
     var audio = new Audio("sounds/" + name + ".mp3");
     audio.play();
+}
+
+function animatePress(currentColour){
+    $("#" + currentColour).addClass( "pressed" );
+    setTimeout(function() {
+        $("#" + currentColour).removeClass( "pressed" );
+      }, 100);
 }
