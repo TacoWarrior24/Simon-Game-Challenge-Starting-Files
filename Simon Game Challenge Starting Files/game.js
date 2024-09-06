@@ -56,6 +56,7 @@ function checkAnswer(currentLevel){
     }
 }
 
+//Resets values so game can be replayed without refreshing.
 function startOver(){
     level = 0;
     gamePattern = [];
@@ -72,6 +73,7 @@ $(".btn").click(function(evt) {
     checkAnswer(userClickedPattern.length - 1)
 })
 
+//Key-board press listener. Starts game on key press if not already started.
 addEventListener("keydown", function(){
     if (!started){
         $("#level-title").html("Level " + level)
