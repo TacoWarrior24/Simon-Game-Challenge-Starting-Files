@@ -20,11 +20,13 @@ function nextSequence(){
     playSound(randomChosenColour);
 };
 
+//Function for Playing all sounds
 function playSound(name){
     var audio = new Audio("sounds/" + name + ".mp3");
     audio.play();
 }
 
+//Press animation
 function animatePress(currentColour){
     $("#" + currentColour).addClass("pressed");
     setTimeout(function() {
@@ -32,6 +34,7 @@ function animatePress(currentColour){
       }, 100);
 }
 
+//Check if what player is inputting matches what has been shown.
 function checkAnswer(currentLevel){
     if (gamePattern[currentLevel] == userClickedPattern[currentLevel]){
         console.log("Success!" , gamePattern[currentLevel] , userClickedPattern[currentLevel]);
